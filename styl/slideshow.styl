@@ -1,16 +1,22 @@
 section#slideshow {
-  height: 400%;
-  overflow: hidden;
+  // background: green;
+  // height: 200%;
+  height: 550px;
+  // overflow: hidden;
   position: relative;
   .stage {
-    position: fixed;
+    // position: fixed;
+    position: absolute;
     top: auto;
     width: 100%;
     left: 0;
-    height: 100%;
-    // transform: scale(.5);
+    height: 550px;
+    transform: scale(.3333);
     transform-origin: 0 0;
     transition-duration: 600ms;
+    &.zoomed {
+      // transition-duration: 600ms;
+    }
   }
   a.slide {
     display: block;
@@ -23,5 +29,12 @@ section#slideshow {
     right: 0;
     bottom: 0;
     left: 0;
+    padding: 64px;
+    img {
+      cursor: pointer;
+      display: block;
+      height: 100%;
+      margin: auto;
+    }
   }
 }

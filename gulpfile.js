@@ -5,10 +5,14 @@ var gulp = require('gulp');
 var stylus = require('gulp-stylus');
 var rjs = require('gulp-requirejs');
 
+
+var prefix = require('gulp-autoprefixer');
+
 // Compile Our Stylus
 gulp.task('stylus', function () {
   gulp.src('styl/main.styl')
     .pipe(stylus())
+    .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
     .pipe(gulp.dest('public/css'));
 });
 

@@ -18,7 +18,7 @@ require(
 
   function(Layout, Slideshow) {
 
-    var layout = new Layout();
+    // var layout = new Layout();
 
     var slideshow = new Slideshow('section#slideshow');
 
