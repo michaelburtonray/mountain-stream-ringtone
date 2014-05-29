@@ -1,12 +1,23 @@
 section#intro {
+  background: red;
   // background: white url('http://files.human-nyc.com/mountain-stream-ringtone/msr-big.gif') center no-repeat;
   // background-attachment: fixed;
   // background-size: contain;
-  height: 100%;
+  height: 380px;
   position: relative;
+  @media tablet-portrait {
+    height: 100%;
+  }
   video {
+    display: none;
     width: 100%;
     height: 100%;
     position: fixed;
+
+    @media $tablet-portrait {
+      // display: block;
+    }
+
   }
+
 }

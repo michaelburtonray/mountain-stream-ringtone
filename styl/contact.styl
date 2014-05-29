@@ -1,18 +1,16 @@
 section#contact {
-  height: 100%;
-  margin: 0 128px;
   overflow: hidden;
+  margin: 0 8px;
   position: relative;
-  padding-right: 28%;
+  word-wrap: break-word;
+  @media $tablet-portrait {
+    padding-right: 28%;
+    height: 100%;
+    margin: 0 128px;
+  }
   .contact-info {
     font-size: 26px;
     font-family: "NanumGothic";
-    // position: absolute;
-    // top: 50%;
-    // left: 0;
-    // transform: translateY(-50%);
-    // padding: 32px;
-    // padding: 32px
   }
 
   address {
@@ -30,11 +28,15 @@ section#contact {
   }
 
   img {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 28%;
-    transform: translateY(-50%);
+    display: block;
+    width: 100%;
+    @media tablet-portrait {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 28%;
+      transform: translateY(-50%);
+    }
   }
 
 }

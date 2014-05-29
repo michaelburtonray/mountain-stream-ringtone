@@ -1,21 +1,31 @@
 section#slideshow {
   // background: green;
   // height: 200%;
-  height: 550px;
-  // overflow: hidden;
+  // height: 550px;
+  overflow: hidden;
   position: relative;
   .stage {
     // position: fixed;
-    position: absolute;
-    top: auto;
-    width: 100%;
-    left: 0;
-    height: 550px;
+    position: relative;
+    margin: auto;
     transform: scale(.3333);
     transform-origin: 0 0;
     transition-duration: 600ms;
+    transition-property: transform;
+
+    @media $tablet-portrait {
+      width: 100%;
+    }
+
     &.zoomed {
+      cursor: zoom-out;
       // transition-duration: 600ms;
+      a.slide {
+        padding: 0;
+      }
+      img {
+        cursor: pointer;
+      }
     }
   }
   a.slide {
@@ -31,10 +41,30 @@ section#slideshow {
     left: 0;
     padding: 64px;
     img {
-      cursor: pointer;
+      cursor: zoom-in;
       display: block;
-      height: 100%;
-      margin: auto;
+      max-height: 100%;
+      max-width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
     }
+    &:nth-child(odd) {
+      background: black;
+    }
+  }
+
+
+  img.home-button {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 320px;
+  }
+  .stage.zoomed ~ img.home-button {
+    cursor: zoom-out;
   }
 }

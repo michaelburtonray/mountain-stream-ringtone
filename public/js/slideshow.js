@@ -35,6 +35,7 @@ define(
         switch (event.target.classList[0]) {
           case "slideshow":
           case "slide":
+          case "home-button":
             zoomOut();
             break;
           case "slide-image":
@@ -81,6 +82,12 @@ define(
         translateY,
         transform;
 
+      console.log('test');
+      stage_el.style.height = window.innerHeight + "px";
+
+      slideshow_el.style.height = window.innerHeight*2.3333 + "px";
+
+
       [].forEach.call(slides, function(slide, index){
 
         translateX = index%3 * 100;
@@ -120,27 +127,28 @@ define(
     }
 
     function renderSlideshow() {
-      console.log('current_slide_index', current_slide_index);
+      var translateX,
+        translateY;
 
-      var translateX = slide_position_array[current_slide_index].translateX * -1,
-        // translateY = slide_position_array[current_slide_index].translateY * -1 - 100,
-        translateY = slide_position_array[current_slide_index].translateY * -1,
+      if(zoomed === true) {
+
+        stage_el.classList.add('zoomed');
+        // zoomed = false;
+
+        translateX = slide_position_array[current_slide_index].translateX * -1,
+        translateY = slide_position_array[current_slide_index].translateY * -1;
+
         transform = "translate(" + translateX + "%, " + translateY +"%)";
 
-      // console.log('index', index);
+      } else {
+        stage_el.classList.remove('zoomed');
 
+        transform = "scale(0.3333)";
 
+      }
 
       stage_el.style.webkitTransform = transform;
 
-      if(zoomed === true) {
-        stage_el.classList.add('zoomed');
-        // zoomed = false;
-      } else {
-        stage_el.classList.remove('zoomed');
-        stage_el.removeAttribute('style');
-        // zoomed = true;
-      }
     }
 
     return Slideshow;
